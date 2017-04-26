@@ -1,9 +1,7 @@
 const express = require('express');
 const fs = require('fs');
-
-// http://handlebarsjs.com :: A template framework for Express
-const hbs = require('hbs'); //https://www.npmjs.com/package/hbs
-
+const hbs = require('hbs'); // http://handlebarsjs.com :: A template framework for Express
+const port = (process.env.PORT === undefined) ? 3000 : process.env.PORT;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials/');
@@ -50,6 +48,6 @@ app.get('/bad', (req, res) => {
 });
 
 //port number
-app.listen(3000, () => {
-  console.log('Server is up on port 3000')
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`)
 });
